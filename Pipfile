@@ -1,0 +1,4 @@
+[packages]
+whisper = {git = "https://github.com/openai/whisper.git"}
+gradio = "*"
+ffmpeg-python = "*"
