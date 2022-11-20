@@ -1,6 +1,8 @@
 import whisper
-model = whisper.load_model("base")
-print(model.device)
+
+# You can choose your model from - see it on readme file and update the modelname
+modelname = "base"
+model = whisper.load_model(modelname)
 
 import gradio as gr 
 import time
@@ -17,12 +19,12 @@ def SpeechToText(audio):
 
     # Detect the Max probability of language ?
     _, probs = model.detect_language(mel)
-    print(f"Language: {max(probs, key=probs.get)}")
+    language = max(probs, key=probs.get)
 
     #  Decode audio to Text
     options = whisper.DecodingOptions(fp16 = False)
     result = whisper.decode(model, mel, options)
-    return result.text
+    return (language , result.text)
 
 
 gr.Interface(
@@ -33,7 +35,8 @@ gr.Interface(
         gr.Audio(source="microphone", type="filepath")
     ],
     outputs=[
-        "textbox"
+        "label",
+        "textbox",
     ],
     live=True
 ).launch(
