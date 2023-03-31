@@ -1,5 +1,7 @@
 FROM python:3.8-slim-buster
 
+RUN apt update && apt install -y ffmpeg
+
 WORKDIR /app
 
 COPY requirements.txt requirements.txt
