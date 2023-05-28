@@ -26,7 +26,7 @@ def SpeechToText(audio):
     result = whisper.decode(model, mel, options)
     return (language , result.text)
 
-
+print("Starting the Gradio Web UI")
 gr.Interface(
     title = 'OpenAI Whisper implementation on Gradio Web UI', 
     fn=SpeechToText, 
@@ -38,8 +38,8 @@ gr.Interface(
         "label",
         "textbox",
     ],
-    live=True
+    live=True,
+    server_port=8000
 ).launch(
     debug=False,
-    share=True
 )
