@@ -38,8 +38,7 @@ gr.Interface(
         "label",
         "textbox",
     ],
-    live=True,
-    server_port=8000
+    live=True
 ).launch(
     debug=False,
 )
