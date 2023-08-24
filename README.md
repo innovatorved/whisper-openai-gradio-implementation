@@ -1,12 +1,12 @@
 
 # Whisper OpenAi Tool Gradio Web implementation
-Whisper is an automatic speech recognition (ASR) system Gradio Web UI Implementation
+Whisper is an automatic speech recognition (ASR) system Gradio Web UI Implementation. It includes options to select different models, drag and drop audio files, and copy transcribed text to the clipboard.
 
 
 
 ## Installation
 
-Install ffmeg on Your Device
+### Install ffmpeg on Your Device
 
 ```bash
   # on Ubuntu or Debian
@@ -23,17 +23,17 @@ Install ffmeg on Your Device
   scoop install ffmpeg
 ```
 
-Download Program
+### Download Program
 
 ```bash
-  mkdir whisper-sppech2txt
-  cd whisper-sppech2txt
+  mkdir whisper-speech2txt
+  cd whisper-speech2txt
   git clone https://github.com/innovatorved/whisper-openai-gradio-implementation.git .
   pip install -r requirements.txt
 ```
     
 
-Run Program
+## Run Program
 
 ```bash
   python app.py
@@ -73,7 +73,7 @@ For English-only applications, the `.en` models tend to perform better, especial
 ## Authors
 
 - [Ved Gupta](https://www.github.com/innovatorved)
-
+- [Jesús Iniesta](https://github.com/gsusI)
   
 ## 🚀 About Me
 I'm a Developer i will feel the code then write .

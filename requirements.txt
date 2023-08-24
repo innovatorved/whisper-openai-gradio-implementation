@@ -78,3 +78,4 @@ uvicorn==0.22.0
 websockets==11.0.3
 whisper @ git+https://github.com/openai/whisper.git@0b1ba3d46ebf7fe6f953acfd8cad62a4f851b49f
 yarl==1.9.2
+pyperclip~=1.8.2
