@@ -1,8 +1,12 @@
 import argparse
+import os
 
 import gradio as gr
 import pyperclip
 import whisper
+import shutil
+import tempfile
+
 
 available_models = ['tiny.en', 'tiny', 'base.en', 'base', 'small.en', 'small', 'medium.en', 'medium', 'large']
 
@@ -20,7 +24,18 @@ def load_whisper_model(model_name):
 
 def process_audio(audio, model):
     if audio is None: return None, None
-    audio = whisper.load_audio(audio)
+
+    # Check if audio is a temporary file object
+    if hasattr(audio, 'name'):
+        audio_path = audio.name
+    else:
+        audio_path = audio
+
+    # Ensure the file path is valid
+    if not os.path.exists(audio_path):
+        raise FileNotFoundError(f"File not found: {audio_path}")
+
+    audio = whisper.load_audio(audio_path)
     audio = whisper.pad_or_trim(audio)
     mel = whisper.log_mel_spectrogram(audio).to(model.device)
     return mel, model
